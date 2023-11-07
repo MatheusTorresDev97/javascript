@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seleção de Elementos</title>
+    <style>
+      .curso {
+        display: flex;
+        justify-content: center;
+        width: 200px;
+        border: 4px solid #888;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 5px 0px;
+        cursor: pointer;
+      }
+
+      .curso:hover {
+        border: #f00;
+      }
+
+      .c1 {
+        background: #ccc;
+        color: #444;
+      }
+
+      .c2 {
+        background: #444;
+        color: #ccc;
+      }
+
+      .destaque {
+        background: #444 !important;
+        color: #ccc !important;
+        border-color: #f00 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="c1" class="curso c1">HTML</div>
+    <div id="c2" class="curso c1">CSS</div>
+    <div id="c3" class="curso c1">Javascript</div>
+    <div id="c4" class="curso c1">PHP</div>
+    <div id="c5" class="curso c1">React</div>
+    <div id="c6" class="curso c1">MySQL</div>
+    <div id="c7" class="curso c2">C++</div>
+    <div id="c8" class="curso c2">C#</div>
+    <div id="c9" class="curso c2">Arduino</div>
+    <div id="c10" class="curso c2">React Native</div>
+    <div id="c11" class="curso c2">Python</div>
+    <div id="c12" class="curso c2">Raspberry</div>
+
+    <script>
+      //Método getElementById -> Retorna apenas um elemento (html element) correspondente ao id passado como parâmetro
+      const c1 = document.getElementById("c1"); //Retorna apenas um elemento //Html Element
+      const c2 = document.getElementById("c2");
+      const c3 = document.getElementById("c3");
+      const c4 = document.getElementById("c4");
+      const c5 = document.getElementById("c5");
+      const c6 = document.getElementById("c6");
+
+      const array = [c1, c2, c3, c4, c5, c6];
+      console.log(c1);
+      console.log(c1.id);
+      console.log(c1.innerHTML);
+      //c1.innerHTML = 'Matheus';
+
+      //Método getElementsByTagName -> Retorna elemento que contenham a tag cria uma coleção selecionando TODAS as tags com o mesmo nome
+      const colecaoHTML = [...document.getElementsByTagName("div")]; // Retorna vários elementos que contenha a tag especificada  //Html Collection utiliando o spread para transformar o html collection em array
+      console.log(colecaoHTML);
+      console.log(arrayElementos);
+
+      //Método getElementsByClassName -> Retorna elementos que contenham a classe
+      const cursosTodos = [...document.getElementsByClassName("curso")];
+      const cursosC1 = [...document.getElementsByClassName("c1")];
+      const cursosC2 = [...document.getElementsByClassName("c2")];
+      const cursoEspecial = document.getElementsByClassName("curso")[1]; //Seleciona e retorna um curso em especifico
+
+      console.log(cursosTodos);
+      console.log(cursosC1);
+      console.log(cursosC2);
+
+      cursosC1.map((cursos) => cursos.classList.add("destaque"));
+
+      ////SELETOR GERAL ÚNICO e SELETOR GERAL LISTA
+
+      //MÉTODO querySelector e querySelectorAll
+      const primeiraDiv = document.querySelector("div");
+      console.log(primeiraDiv);
+
+      const todasDivs = document.querySelectorAll("div")[1];
+      // todasDivs.forEach((divs) => {
+      //     divs.classList.remove('destaque')
+      // })
+
+      const todasClass = document.querySelectorAll("div[class]");
+
+      console.log(todasDivs);
+    </script>
+  </body>
+</html>
